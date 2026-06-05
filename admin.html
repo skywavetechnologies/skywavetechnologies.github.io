@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skywave Admin Dashboard</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  background: #0f172a;
+  color: white;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #111827;
+  height: 100vh;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  color: #3b82f6;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.sidebar a:hover {
+  background: #1e3a8a;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: #1f2937;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.card h3 {
+  margin: 0;
+  color: #3b82f6;
+}
+
+/* Top bar */
+.topbar {
+  background: #111827;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <h2>Skywave Admin</h2>
+  <a href="#">Dashboard</a>
+  <a href="#">Projects</a>
+  <a href="#">Gallery</a>
+  <a href="#">Messages</a>
+  <a href="index.html">Back to Website</a>
+</div>
+
+<div class="main">
+
+  <div class="topbar">
+    <h2>Welcome, Admin 👋</h2>
+    <p>Manage Skywave Technologies Uganda website</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Projects</h3>
+      <p>12 Active</p>
+    </div>
+
+    <div class="card">
+      <h3>Clients</h3>
+      <p>8 Companies</p>
+    </div>
+
+    <div class="card">
+      <h3>Messages</h3>
+      <p>5 New</p>
+    </div>
+
+    <div class="card">
+      <h3>Website Status</h3>
+      <p>Online ✅</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
