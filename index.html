@@ -205,106 +205,717 @@
       }
     }
   </style></head>
-<body>  <header>
-    <div class="logo">Skywave Technologies Uganda</div><nav>
-  <a href="#home">Home</a>
-  <a href="#services">Services</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Skywave Technologies Uganda – Smart Security & IT Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #0A1E5E;
+    --navy2:  #1a3a8f;
+    --gold:   #F5C518;
+    --gold2:  #e8b200;
+    --red:    #e83030;
+    --white:  #ffffff;
+    --light:  #f0f4ff;
+    --text:   #2a3a5e;
+    --muted:  #6a7a9e;
+    --border: #dde4f5;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Open Sans',sans-serif; color:var(--text); background:#fff; overflow-x:hidden; }
+  h1,h2,h3,h4 { font-family:'Montserrat',sans-serif; }
+
+  /* ── NAV ── */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:999;
+    background:rgba(10,30,94,.97);
+    backdrop-filter:blur(12px);
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 5vw; height:68px;
+    border-bottom:3px solid var(--gold);
+  }
+  .logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+  .logo-icon {
+    width:40px; height:40px; background:rgba(245,197,24,.15);
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-size:1.2rem; border:2px solid rgba(245,197,24,.4);
+  }
+  .logo-text { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.1rem;
+    color:#fff; text-transform:uppercase; letter-spacing:.04em; line-height:1.1; }
+  .logo-text span { color:var(--gold); display:block; font-size:.65rem; font-weight:600; letter-spacing:.14em; }
+  nav ul { list-style:none; display:flex; gap:1.8rem; }
+  nav ul a { color:rgba(255,255,255,.75); text-decoration:none; font-size:.8rem;
+    font-weight:600; text-transform:uppercase; letter-spacing:.08em;
+    transition:color .2s; font-family:'Montserrat',sans-serif; }
+  nav ul a:hover { color:var(--gold); }
+  .nav-cta {
+    background:var(--gold); color:var(--navy) !important;
+    padding:.45rem 1.2rem; border-radius:3px; font-weight:800 !important;
+  }
+  .nav-cta:hover { background:#ffd84d !important; }
+  .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+  .hamburger span { width:24px; height:2px; background:#fff; border-radius:2px; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height:100vh;
+    background:linear-gradient(135deg, #060f2e 0%, #0A1E5E 50%, #0d2878 100%);
+    display:flex; align-items:center;
+    padding:100px 5vw 60px;
+    position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(245,197,24,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,197,24,.04) 1px, transparent 1px);
+    background-size:50px 50px;
+  }
+  .hero-glow {
+    position:absolute; top:-100px; right:-100px;
+    width:500px; height:500px;
+    background:radial-gradient(circle, rgba(245,197,24,.12) 0%, transparent 65%);
+  }
+  .hero-glow2 {
+    position:absolute; bottom:-100px; left:-100px;
+    width:400px; height:400px;
+    background:radial-gradient(circle, rgba(26,58,143,.4) 0%, transparent 65%);
+  }
+  .hero-content { position:relative; z-index:2; max-width:620px; }
+  .hero-badge {
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(245,197,24,.12); border:1px solid rgba(245,197,24,.3);
+    color:var(--gold); font-size:.65rem; font-weight:700;
+    letter-spacing:.16em; text-transform:uppercase;
+    padding:.4rem 1rem; border-radius:2px; margin-bottom:1.5rem;
+    font-family:'Montserrat',sans-serif;
+  }
+  .hero-badge::before { content:'●'; font-size:.5rem; animation:blink 1.5s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+  h1 {
+    font-size:clamp(2.8rem,7vw,5rem); font-weight:900;
+    text-transform:uppercase; line-height:.95; color:#fff;
+    margin-bottom:1.2rem;
+  }
+  h1 em { font-style:normal; color:var(--gold); display:block; }
+  .hero-sub {
+    font-size:1rem; color:rgba(255,255,255,.65);
+    max-width:480px; line-height:1.7; margin-bottom:2.2rem;
+  }
+  .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+  .btn-primary {
+    background:var(--gold); color:var(--navy);
+    padding:.8rem 2rem; border-radius:3px; font-weight:800;
+    font-size:.9rem; text-decoration:none; font-family:'Montserrat',sans-serif;
+    text-transform:uppercase; letter-spacing:.06em;
+    transition:background .2s, transform .15s; display:inline-block;
+  }
+  .btn-primary:hover { background:#ffd84d; transform:translateY(-2px); }
+  .btn-ghost {
+    border:2px solid rgba(255,255,255,.3); color:#fff;
+    padding:.8rem 2rem; border-radius:3px; font-weight:600;
+    font-size:.9rem; text-decoration:none; font-family:'Montserrat',sans-serif;
+    text-transform:uppercase; letter-spacing:.06em;
+    transition:border-color .2s, background .2s; display:inline-block;
+  }
+  .btn-ghost:hover { border-color:var(--gold); background:rgba(245,197,24,.08); }
+  .hero-stats {
+    position:absolute; bottom:0; left:0; right:0; z-index:2;
+    background:rgba(0,0,0,.35);
+    display:flex; justify-content:space-around; flex-wrap:wrap;
+    padding:1.2rem 5vw;
+    border-top:1px solid rgba(245,197,24,.2);
+  }
+  .hstat { text-align:center; }
+  .hstat-num { font-family:'Montserrat',sans-serif; font-size:1.8rem; font-weight:900; color:var(--gold); line-height:1; }
+  .hstat-label { font-size:.62rem; color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.1em; margin-top:2px; }
+
+  /* ── SECTIONS ── */
+  section { padding:90px 5vw; }
+  .section-label {
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:.62rem; font-weight:800; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--navy); margin-bottom:.75rem;
+    font-family:'Montserrat',sans-serif;
+  }
+  .section-label::before { content:''; display:inline-block; width:24px; height:2px; background:var(--gold); }
+  h2 { font-size:clamp(1.8rem,4vw,2.8rem); font-weight:900; text-transform:uppercase;
+    color:var(--navy); line-height:1.05; margin-bottom:.75rem; }
+  .section-sub { color:var(--muted); font-size:.95rem; max-width:520px; line-height:1.7; margin-bottom:2.5rem; }
+
+  /* ── SERVICES ── */
+  #services { background:#fff; }
+  .services-grid {
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+    gap:1.25rem;
+  }
+  .svc-card {
+    border:1.5px solid var(--border); border-radius:6px; padding:2rem 1.75rem;
+    transition:border-color .25s, box-shadow .25s, transform .25s;
+    position:relative; overflow:hidden; background:#fff;
+  }
+  .svc-card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:4px;
+    background:var(--accent, var(--gold));
+    transform:scaleX(0); transform-origin:left; transition:transform .3s;
+  }
+  .svc-card:hover { border-color:var(--accent, var(--gold));
+    box-shadow:0 8px 32px rgba(10,30,94,.1); transform:translateY(-4px); }
+  .svc-card:hover::before { transform:scaleX(1); }
+  .svc-icon { font-size:2.2rem; margin-bottom:1rem; display:block; }
+  .svc-card h3 { font-size:1.1rem; font-weight:800; color:var(--navy);
+    text-transform:uppercase; letter-spacing:.02em; margin-bottom:.5rem; }
+  .svc-card p { font-size:.82rem; color:var(--muted); line-height:1.7; margin-bottom:.75rem; }
+  .svc-card ul { list-style:none; display:flex; flex-direction:column; gap:.3rem; }
+  .svc-card ul li { font-size:.78rem; color:var(--text); display:flex; gap:.5rem; align-items:flex-start; }
+  .svc-card ul li::before { content:'✓'; color:var(--accent,var(--gold)); font-weight:800; flex-shrink:0; }
+  .new-badge {
+    position:absolute; top:14px; right:14px;
+    background:var(--red); color:#fff; font-size:.55rem; font-weight:800;
+    padding:2px 7px; border-radius:2px; letter-spacing:.1em; text-transform:uppercase;
+    font-family:'Montserrat',sans-serif;
+  }
+
+  /* ── HOTSPOT FEATURE ── */
+  #hotspot { background:var(--light); }
+  .hotspot-wrap {
+    display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;
+  }
+  .hotspot-visual {
+    background:var(--navy);
+    border-radius:10px; padding:2.5rem;
+    position:relative; overflow:hidden;
+  }
+  .hotspot-visual::before {
+    content:'';
+    position:absolute; inset:0;
+    background-image:linear-gradient(rgba(245,197,24,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,197,24,.05) 1px, transparent 1px);
+    background-size:30px 30px;
+  }
+  .hotspot-visual h3 {
+    font-size:1.6rem; font-weight:900; text-transform:uppercase;
+    color:var(--gold); margin-bottom:.4rem; position:relative; z-index:1;
+  }
+  .hotspot-visual p { color:rgba(255,255,255,.6); font-size:.85rem; margin-bottom:1.5rem; position:relative; z-index:1; }
+  .hotspot-features { list-style:none; display:flex; flex-direction:column; gap:.85rem; position:relative; z-index:1; }
+  .hf-item { display:flex; align-items:flex-start; gap:12px; }
+  .hf-icon {
+    width:34px; height:34px; background:rgba(245,197,24,.12);
+    border:1px solid rgba(245,197,24,.25); border-radius:5px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1rem; flex-shrink:0;
+  }
+  .hf-item h4 { font-size:.82rem; font-weight:700; color:#fff; margin-bottom:2px; }
+  .hf-item p { font-size:.75rem; color:rgba(255,255,255,.5); }
+  .hotspot-text {}
+  .hotspot-text h2 { color:var(--navy); }
+  .benefit-list { list-style:none; display:flex; flex-direction:column; gap:1rem; margin-top:1.5rem; }
+  .benefit-item { display:flex; gap:12px; align-items:flex-start; }
+  .benefit-icon {
+    width:40px; height:40px; background:rgba(10,30,94,.08);
+    border-radius:6px; display:flex; align-items:center; justify-content:center;
+    font-size:1.1rem; flex-shrink:0;
+  }
+  .benefit-item h4 { font-size:.88rem; font-weight:700; color:var(--navy); margin-bottom:2px; }
+  .benefit-item p { font-size:.78rem; color:var(--muted); }
+
+  /* ── WHY US ── */
+  #why { background:#fff; }
+  .why-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:1.25rem; }
+  .why-card {
+    background:var(--light); border-radius:6px; padding:1.75rem 1.5rem;
+    border:1.5px solid var(--border); text-align:center;
+    transition:border-color .25s, transform .25s;
+  }
+  .why-card:hover { border-color:var(--navy); transform:translateY(-3px); }
+  .why-card .wc-icon { font-size:2rem; margin-bottom:.75rem; display:block; }
+  .why-card h4 { font-size:.95rem; font-weight:800; text-transform:uppercase;
+    color:var(--navy); margin-bottom:.4rem; letter-spacing:.02em; }
+  .why-card p { font-size:.78rem; color:var(--muted); line-height:1.65; }
+
+  /* ── IDEAL FOR ── */
+  #ideal { background:var(--navy); padding:60px 5vw; }
+  #ideal h2 { color:#fff; }
+  #ideal .section-label { color:var(--gold); }
+  #ideal .section-label::before { background:var(--gold); }
+  .ideal-grid {
+    display:grid; grid-template-columns:repeat(5,1fr); gap:1rem; margin-top:2rem;
+  }
+  .ideal-card {
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1);
+    border-radius:8px; padding:1.5rem 1rem; text-align:center;
+    transition:background .25s, border-color .25s;
+  }
+  .ideal-card:hover { background:rgba(245,197,24,.1); border-color:var(--gold); }
+  .ideal-card .ic-icon { font-size:2rem; margin-bottom:.6rem; display:block; }
+  .ideal-card span { font-size:.72rem; font-weight:700; text-transform:uppercase;
+    letter-spacing:.1em; color:rgba(255,255,255,.7); font-family:'Montserrat',sans-serif; }
+
+  /* ── PROCESS ── */
+  #process { background:var(--light); }
+  .process-grid {
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(180px,1fr));
+    gap:1.25rem; counter-reset:step;
+  }
+  .process-step {
+    background:#fff; border:1.5px solid var(--border); border-radius:6px;
+    padding:1.75rem 1.5rem; position:relative; overflow:hidden;
+  }
+  .step-num {
+    font-family:'Montserrat',sans-serif; font-size:3rem; font-weight:900;
+    color:rgba(10,30,94,.07); position:absolute; top:.5rem; right:.75rem; line-height:1;
+  }
+  .process-step h4 { font-size:.9rem; font-weight:800; text-transform:uppercase;
+    color:var(--navy); margin-bottom:.4rem; letter-spacing:.02em; }
+  .process-step p { font-size:.78rem; color:var(--muted); line-height:1.6; }
+
+  /* ── CONTACT ── */
+  #contact { background:#fff; }
+  .contact-wrap { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+  .contact-info h2 { margin-bottom:.75rem; }
+  .contact-info p { color:var(--muted); margin-bottom:1.5rem; font-size:.9rem; }
+  .ci-item {
+    display:flex; align-items:center; gap:12px;
+    padding:.85rem 1rem; background:var(--light);
+    border-radius:5px; margin-bottom:.6rem;
+    border:1px solid var(--border);
+  }
+  .ci-icon { width:36px; height:36px; background:var(--navy);
+    border-radius:5px; display:flex; align-items:center; justify-content:center;
+    font-size:1rem; flex-shrink:0; }
+  .ci-item strong { display:block; font-size:.85rem; font-weight:700; color:var(--navy); }
+  .ci-item span { font-size:.78rem; color:var(--muted); }
+  .contact-form { display:flex; flex-direction:column; gap:.85rem; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; }
+  input, textarea, select {
+    background:var(--light); border:1.5px solid var(--border);
+    border-radius:4px; color:var(--text); padding:.75rem 1rem;
+    font-size:.88rem; font-family:'Open Sans',sans-serif;
+    width:100%; transition:border-color .2s; outline:none;
+  }
+  input:focus, textarea:focus, select:focus { border-color:var(--navy); }
+  textarea { height:110px; resize:vertical; }
+  .submit-btn {
+    background:var(--navy); color:#fff; border:none;
+    padding:.85rem 2rem; border-radius:4px; font-weight:800;
+    font-size:.9rem; cursor:pointer; font-family:'Montserrat',sans-serif;
+    letter-spacing:.06em; text-transform:uppercase;
+    transition:background .2s, transform .15s; align-self:flex-start;
+  }
+  .submit-btn:hover { background:var(--navy2); transform:translateY(-2px); }
+  #form-success { display:none; color:#1a7a3a; font-size:.85rem;
+    background:#e8f5ec; border:1px solid #b3dbbe; padding:.75rem 1rem; border-radius:4px; }
+
+  /* ── WHATSAPP FLOAT ── */
+  .wa-float {
+    position:fixed; bottom:24px; right:24px; z-index:999;
+    width:56px; height:56px;
+    background:#25D366; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.6rem; box-shadow:0 4px 20px rgba(37,211,102,.4);
+    text-decoration:none; transition:transform .2s, box-shadow .2s;
+  }
+  .wa-float:hover { transform:scale(1.1); box-shadow:0 6px 28px rgba(37,211,102,.6); }
+  .wa-float::before {
+    content:'Chat with us!';
+    position:absolute; right:64px;
+    background:var(--navy); color:#fff;
+    font-size:.72rem; font-weight:700; white-space:nowrap;
+    padding:.4rem .85rem; border-radius:3px;
+    font-family:'Montserrat',sans-serif; letter-spacing:.04em;
+    opacity:0; pointer-events:none; transition:opacity .2s;
+  }
+  .wa-float:hover::before { opacity:1; }
+
+  /* ── FOOTER ── */
+  footer {
+    background:var(--navy); border-top:3px solid var(--gold);
+    padding:2rem 5vw;
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:1rem;
+  }
+  .footer-logo { color:#fff; font-family:'Montserrat',sans-serif;
+    font-weight:900; font-size:.95rem; text-transform:uppercase; letter-spacing:.04em; }
+  .footer-logo span { color:var(--gold); }
+  .footer-copy { font-size:.72rem; color:rgba(255,255,255,.4); }
+  .footer-links { display:flex; gap:1.5rem; }
+  .footer-links a { font-size:.72rem; color:rgba(255,255,255,.5);
+    text-decoration:none; transition:color .2s; font-family:'Montserrat',sans-serif;
+    text-transform:uppercase; letter-spacing:.06em; font-weight:600; }
+  .footer-links a:hover { color:var(--gold); }
+
+  /* ── MOBILE ── */
+  @media (max-width:768px) {
+    nav ul { display:none; }
+    .hamburger { display:flex; }
+    .hotspot-wrap, .contact-wrap { grid-template-columns:1fr; }
+    .ideal-grid { grid-template-columns:repeat(3,1fr); }
+    .form-row { grid-template-columns:1fr; }
+    h1 { font-size:2.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- WHATSAPP FLOAT -->
+<a class="wa-float" href="https://wa.me/256776383214" target="_blank" rel="noopener">📱</a>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">
+    <div class="logo-icon">📡</div>
+    <div class="logo-text">Skywave Technologies<span>Uganda · Smart Security</span></div>
+  </a>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#hotspot">Hotspot</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <div class="hamburger"><span></span><span></span><span></span></div>
 </nav>
 
-  </header>  <section class="hero" id="home">
-    <img src="1000029393.jpg" alt="Skywave Technologies Team" style="display:none;">
-    <div class="hero-content">
-      <h1>Smart Technology Solutions For Uganda</h1>
-      <p>
-        Skywave Technologies Uganda provides professional networking,
-        CCTV installation, hotspot systems, web development, IT support,
-        and modern digital solutions for homes and businesses.
-      </p>
-      <a href="#contact" class="btn">Contact Us</a>
-      <a class="btn" href="admin.html" style="background:#1e3a8a; margin-left:10px;">
-  Open Admin Dashboard
-      </a>
-</div>
-
-  </section>  <section id="services">
-    <div class="section-title">
-      <h2>Our Services</h2>
-    </div><div class="services">
-  <div class="card">
-    <h3>Network Installation</h3>
-    <p>Professional LAN, Wi‑Fi and MikroTik network setup for businesses and homes.</p>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Uganda's Trusted Security & IT Partner</div>
+    <h1>Secure Your<br>World <em>Today.</em></h1>
+    <p class="hero-sub">Professional CCTV, networking, biometric systems, and hotspot business setup for homes, offices, schools and businesses across Uganda.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/256776383214" class="btn-primary" target="_blank">📱 WhatsApp Us</a>
+      <a href="#services" class="btn-ghost">View Services</a>
+    </div>
   </div>
-
-  <div class="card">
-    <h3>CCTV Installation</h3>
-    <p>Secure your property with modern HD surveillance camera systems.</p>
-  </div>
-
-  <div class="card">
-    <h3>Hotspot Solutions</h3>
-    <p>Wi‑Fi hotspot and billing systems for hotels, schools and public spaces.</p>
-  </div>
-
-  <div class="card">
-    <h3>Website Development</h3>
-    <p>Modern responsive websites for businesses, brands and startups.</p>
-  </div>
-
-  <div class="card">
-    <h3>IT Support</h3>
-    <p>Computer repair, maintenance, software installation and troubleshooting.</p>
-  </div>
-
-  <div class="card">
-    <h3>Digital Solutions</h3>
-    <p>Custom tech solutions designed to improve business productivity.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-num">500+</div><div class="hstat-label">Installations Done</div></div>
+    <div class="hstat"><div class="hstat-num">24/7</div><div class="hstat-label">Support Available</div></div>
+    <div class="hstat"><div class="hstat-num">100%</div><div class="hstat-label">Quality Guaranteed</div></div>
+    <div class="hstat"><div class="hstat-num">5★</div><div class="hstat-label">Client Satisfaction</div></div>
   </div>
 </div>
 
-  </section>  <section id="gallery">
-    <div class="section-title">
-      <h2>Our Projects</h2>
-    </div><div class="services">
-  <div class="card">
-    <img src="1000117545.jpg" alt="Industrial Project Site" style="width:100%; border-radius:12px; margin-bottom:15px;">
-    <h3>Industrial Infrastructure</h3>
-    <p>Professional technology and infrastructure support on large industrial sites.</p>
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">What We Do</div>
+  <h2>Our Services</h2>
+  <p class="section-sub">Complete security and IT solutions delivered by a certified, experienced team. We handle everything from supply to installation to after-sales support.</p>
+  <div class="services-grid">
+
+    <div class="svc-card" style="--accent:#0A1E5E">
+      <span class="svc-icon">📹</span>
+      <h3>CCTV Camera Installation</h3>
+      <p>Complete surveillance systems for total visibility and peace of mind, day and night.</p>
+      <ul>
+        <li>HD & 4K IP cameras</li>
+        <li>Indoor & outdoor systems</li>
+        <li>Night vision & motion detection</li>
+        <li>Remote viewing via phone</li>
+        <li>Hikvision & Dahua systems</li>
+      </ul>
+    </div>
+
+    <div class="svc-card" style="--accent:#F5C518">
+      <span class="svc-icon">📡</span>
+      <h3>Wi-Fi & IP Cameras</h3>
+      <p>Wireless camera networks for flexible installation without the mess of cabling.</p>
+      <ul>
+        <li>Wireless IP camera setup</li>
+        <li>Wi-Fi network design</li>
+        <li>Long-range outdoor Wi-Fi</li>
+        <li>Network security config</li>
+      </ul>
+    </div>
+
+    <div class="svc-card" style="--accent:#0A1E5E">
+      <span class="svc-icon">🖥️</span>
+      <h3>DVR/NVR Setup & Remote Viewing</h3>
+      <p>Full recorder setup so you can monitor your property from anywhere in the world.</p>
+      <ul>
+        <li>DVR & NVR configuration</li>
+        <li>Cloud & remote access setup</li>
+        <li>Mobile app configuration</li>
+        <li>Storage & backup planning</li>
+      </ul>
+    </div>
+
+    <div class="svc-card" style="--accent:#F5C518">
+      <span class="svc-icon">👆</span>
+      <h3>Biometric Attendance Systems</h3>
+      <p>Accurate, automated attendance tracking using fingerprint and face recognition.</p>
+      <ul>
+        <li>Fingerprint & face recognition</li>
+        <li>Time & attendance reports</li>
+                <li>ZKTeco systems</li>
+        <li>Payroll system integration</li>
+      </ul>
+    </div>
+
+    <div class="svc-card" style="--accent:#0A1E5E">
+      <span class="svc-icon">🔐</span>
+      <h3>Access Control Solutions</h3>
+      <p>Control who enters your premises with smart card, PIN, and biometric access.</p>
+      <ul>
+        <li>Door access controllers</li>
+        <li>Electric locks & barriers</li>
+        <li>Smart card & PIN systems</li>
+        <li>Visitor management</li>
+      </ul>
+    </div>
+
+    <div class="svc-card" style="--accent:#F5C518">
+      <span class="svc-icon">🌐</span>
+      <h3>Networking & IT Support</h3>
+      <p>Reliable networking infrastructure and ongoing IT support for your business.</p>
+      <ul>
+        <li>LAN/WAN setup & cabling</li>
+        <li>Router & switch config</li>
+        <li>IT troubleshooting</li>
+        <li>Network maintenance</li>
+      </ul>
+    </div>
+
+    <div class="svc-card" style="--accent:#e83030">
+      <div class="new-badge">NEW</div>
+      <span class="svc-icon">📶</span>
+      <h3>Hotspot Business Setup</h3>
+      <p>Turn your internet connection into a revenue-generating Wi-Fi business for your customers.</p>
+      <ul>
+        <li>Voucher & data plan system</li>
+        <li>Custom branded login page</li>
+        <li>User management portal</li>
+        <li>Revenue & analytics reports</li>
+        <li>Full setup & training</li>
+      </ul>
+    </div>
+
   </div>
+</section>
 
-  <div class="card">
-    <img src="1000029393.jpg" alt="Skywave Technologies Team" style="width:100%; border-radius:12px; margin-bottom:15px;">
-    <h3>Professional Team</h3>
-    <p>Experienced technical personnel delivering reliable field and ICT solutions.</p>
+<!-- HOTSPOT FEATURE -->
+<section id="hotspot">
+  <div class="hotspot-wrap">
+    <div class="hotspot-visual">
+      <h3>📶 Hotspot Business Setup</h3>
+      <p>The smartest way to monetise your internet connection</p>
+      <ul class="hotspot-features">
+        <li class="hf-item">
+          <div class="hf-icon">🌐</div>
+          <div><h4>Unlimited Internet Access</h4><p>Serve unlimited customers with controlled, fast Wi-Fi</p></div>
+        </li>
+        <li class="hf-item">
+          <div class="hf-icon">👤</div>
+          <div><h4>User Management & Login</h4><p>Control who connects and for how long</p></div>
+        </li>
+        <li class="hf-item">
+          <div class="hf-icon">🎟️</div>
+          <div><h4>Vouchers, Time & Data Plans</h4><p>Sell hourly, daily or data-based packages</p></div>
+        </li>
+        <li class="hf-item">
+          <div class="hf-icon">🎨</div>
+          <div><h4>Custom Branding</h4><p>Your logo and business name on the login page</p></div>
+        </li>
+        <li class="hf-item">
+          <div class="hf-icon">📊</div>
+          <div><h4>Detailed Reports & Analytics</h4><p>Track usage, revenue, and customer activity</p></div>
+        </li>
+      </ul>
+    </div>
+    <div class="hotspot-text">
+      <div class="section-label">New Service</div>
+      <h2>Grow Your Business With Wi-Fi</h2>
+      <p class="section-sub">Perfect for cafes, hotels, schools, salons, and any business with customer foot traffic.</p>
+      <ul class="benefit-list">
+        <li class="benefit-item">
+          <div class="benefit-icon">💰</div>
+          <div><h4>Generate Extra Income</h4><p>Sell Wi-Fi vouchers directly to your customers and earn daily.</p></div>
+        </li>
+        <li class="benefit-item">
+          <div class="benefit-icon">🏆</div>
+          <div><h4>Keep Customers Longer</h4><p>Good Wi-Fi keeps customers in your shop, café, or waiting room.</p></div>
+        </li>
+        <li class="benefit-item">
+          <div class="benefit-icon">📱</div>
+          <div><h4>Manage From Your Phone</h4><p>Monitor usage, create vouchers, and view reports anywhere.</p></div>
+        </li>
+        <li class="benefit-item">
+          <div class="benefit-icon">🛠️</div>
+          <div><h4>We Handle Everything</h4><p>Full installation, configuration, training, and ongoing support.</p></div>
+        </li>
+      </ul>
+      <br>
+      <a href="https://wa.me/256776383214" class="btn-primary" target="_blank">📱 Ask About Hotspot Setup</a>
+    </div>
   </div>
-</div>
+</section>
 
-  </section>  <section id="about">
-    <div class="section-title">
-      <h2>About Us</h2>
-    </div><div class="about">
-  <p>
-    Skywave Technologies Uganda is a technology company focused on delivering
-    reliable, affordable and innovative ICT services across Uganda.
-    We help businesses and individuals stay connected, secure and digitally empowered.
-  </p>
-</div>
+<!-- WHY US -->
+<section id="why">
+  <div class="section-label">Why Choose Us</div>
+  <h2>The Skywave Difference</h2>
+  <p class="section-sub">We don't just install equipment — we build long-term security solutions backed by genuine support.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="wc-icon">🏆</span>
+      <h4>Quality Equipment</h4>
+      <p>We only use trusted brands like Hikvision, Dahua, D-Link, and ZKTeco — no cheap imitations.</p>
+    </div>
+    <div class="why-card">
+      <span class="wc-icon">👷</span>
+      <h4>Professional Installation</h4>
+      <p>Certified technicians with hands-on experience across hundreds of installations in Uganda.</p>
+    </div>
+    <div class="why-card">
+      <span class="wc-icon">💰</span>
+      <h4>Affordable Prices</h4>
+      <p>Competitive pricing without compromising on quality. We work within your budget.</p>
+    </div>
+    <div class="why-card">
+      <span class="wc-icon">🎧</span>
+      <h4>Reliable After-Sales</h4>
+      <p>We don't disappear after installation. Our team is available for support, repairs, and upgrades.</p>
+    </div>
+    <div class="why-card">
+      <span class="wc-icon">⚡</span>
+      <h4>Fast Response</h4>
+      <p>Quick turnaround on quotes and installations. We respect your time and deadlines.</p>
+    </div>
+    <div class="why-card">
+      <span class="wc-icon">🔒</span>
+      <h4>Trusted & Experienced</h4>
+      <p>Years of experience securing homes, businesses, schools, and institutions across Uganda.</p>
+    </div>
+  </div>
+</section>
 
-  </section>  <section id="contact">
-    <div class="section-title">
-      <h2>Contact Us</h2>
-    </div><div class="contact-box">
-  <p><strong>Phone:</strong> +256 776 383214</p>
-  <p><strong>Email:</strong> skywavetechnologiesug@gmail.com</p>
-  <p><strong>Location:</strong> Kampala, Uganda</p>
-  <br>
-  <a href="https://wa.me/256776383214" class="btn">Chat on WhatsApp</a>
-</div>
+<!-- IDEAL FOR -->
+<section id="ideal">
+  <div class="section-label" style="color:var(--gold)">Who We Serve</div>
+  <h2>Ideal For Every Setting</h2>
+  <div class="ideal-grid">
+    <div class="ideal-card"><span class="ic-icon">🏠</span><span>Home</span></div>
+    <div class="ideal-card"><span class="ic-icon">🏢</span><span>Office</span></div>
+    <div class="ideal-card"><span class="ic-icon">🏪</span><span>Shop</span></div>
+    <div class="ideal-card"><span class="ic-icon">🏫</span><span>School</span></div>
+    <div class="ideal-card"><span class="ic-icon">🏨</span><span>Hotel</span></div>
+    <div class="ideal-card"><span class="ic-icon">☕</span><span>Café</span></div>
+    <div class="ideal-card"><span class="ic-icon">🏭</span><span>Warehouse</span></div>
+    <div class="ideal-card"><span class="ic-icon">🏥</span><span>Clinic</span></div>
+    <div class="ideal-card"><span class="ic-icon">⛪</span><span>Church</span></div>
+    <div class="ideal-card"><span class="ic-icon">🏗️</span><span>Construction</span></div>
+  </div>
+</section>
 
-  </section>  <footer>
-    <p>© 2026 Skywave Technologies Uganda. All rights reserved.</p>
-  </footer><a href="https://wa.me/256776383214" class="whatsapp">WhatsApp</a>
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-label">How It Works</div>
+  <h2>Simple 5-Step Process</h2>
+  <p class="section-sub">From your first call to final handover, we make the whole process easy and transparent.</p>
+  <div class="process-grid">
+    <div class="process-step"><div class="step-num">01</div><h4>Contact Us</h4><p>Call, WhatsApp, or email us with your requirements. We respond fast.</p></div>
+    <div class="process-step"><div class="step-num">02</div><h4>Free Site Survey</h4><p>We visit your site, assess your needs, and advise on the best solution.</p></div>
+    <div class="process-step"><div class="step-num">03</div><h4>Quote & Approval</h4><p>You receive a clear, itemised quote with no hidden charges.</p></div>
+    <div class="process-step"><div class="step-num">04</div><h4>Installation</h4><p>Our certified team installs and configures everything professionally.</p></div>
+    <div class="process-step"><div class="step-num">05</div><h4>Handover & Support</h4><p>We train your team and remain available for ongoing support.</p></div>
+  </div>
+</section>
 
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <div class="section-label">Get In Touch</div>
+      <h2>Request a Free Quote</h2>
+      <p>Tell us about your project and we'll get back to you within a few hours with a no-obligation quote.</p>
+      <div class="ci-item">
+        <div class="ci-icon">📞</div>
+        <div><strong>0776 383 214</strong><span>Call or WhatsApp (Primary)</span></div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-icon">📞</div>
+        <div><strong>0702 084 443</strong><span>Call or WhatsApp (Secondary)</span></div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-icon">✉️</div>
+        <div><strong>skywavetechnologiesug@gmail.com</strong><span>Email Us Anytime</span></div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-icon">📍</div>
+        <div><strong>Kampala, Uganda</strong><span>Serving Uganda & East Africa</span></div>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="submitForm(event)">
+      <div class="form-row">
+        <input type="text" placeholder="Your Name *" required/>
+        <input type="tel" placeholder="Phone / WhatsApp *" required/>
+      </div>
+      <input type="email" placeholder="Email Address"/>
+      <select>
+        <option value="" disabled selected>Service Required</option>
+        <option>CCTV Camera Installation</option>
+        <option>Wi-Fi & IP Cameras</option>
+        <option>DVR/NVR Setup & Remote Viewing</option>
+        <option>Biometric Attendance System</option>
+        <option>Access Control Solutions</option>
+        <option>Networking & IT Support</option>
+        <option>Hotspot Business Setup</option>
+        <option>Multiple Services</option>
+      </select>
+      <textarea placeholder="Describe your project — location, size, what you need..."></textarea>
+      <button type="submit" class="submit-btn">🚀 Send Enquiry</button>
+      <div id="form-success">✅ Message sent! We'll get back to you shortly.</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Skywave <span>Technologies</span> Uganda</div>
+    <div class="footer-copy">© 2025 Skywave Technologies Uganda. All rights reserved.</div>
+  </div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#hotspot">Hotspot</a>
+    <a href="#why">Why Us</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+  function submitForm(e) {
+    e.preventDefault();
+    const s = document.getElementById('form-success');
+    s.style.display = 'block';
+    e.target.reset();
+    setTimeout(() => s.style.display = 'none', 6000);
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.style.opacity = '1';
+        el.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.07 });
+
+  document.querySelectorAll('.svc-card, .why-card, .process-step, .ideal-card, .hf-item, .benefit-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(18px)';
+    el.style.transition = 'opacity .4s ease, transform .4s ease';
+    observer.observe(el);
+  });
+</script>
 </body>
-</html>       
+</html>
