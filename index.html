@@ -553,8 +553,29 @@
 
   /* ── MOBILE ── */
   @media (max-width:768px) {
-    nav ul { display:none; }
+    nav ul {
+      display:none;
+      position:fixed; top:68px; left:0; right:0;
+      background:rgba(10,30,94,.98);
+      flex-direction:column;
+      padding:1rem 0 1.5rem;
+      gap:0;
+      border-bottom:3px solid var(--gold);
+      z-index:998;
+    }
+    nav ul.open { display:flex; }
+    nav ul li { width:100%; }
+    nav ul a {
+      display:block; padding:.9rem 2rem;
+      border-bottom:1px solid rgba(255,255,255,.07);
+      font-size:.9rem;
+    }
+    nav ul li:last-child a { border-bottom:none; }
     .hamburger { display:flex; }
+    .hamburger.active span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity:0; }
+    .hamburger.active span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+    .hamburger span { transition:transform .25s, opacity .25s; }
     .hotspot-wrap, .contact-wrap { grid-template-columns:1fr; }
     .ideal-grid { grid-template-columns:repeat(3,1fr); }
     .form-row { grid-template-columns:1fr; }
@@ -636,7 +657,7 @@
       </ul>
     </div>
 
-    <div class="svc-card" style="--accent:#0A1E5E">
+   <div class="svc-card" style="--accent:#0A1E5E">
       <span class="svc-icon">🖥️</span>
       <h3>DVR/NVR Setup & Remote Viewing</h3>
       <p>Full recorder setup so you can monitor your property from anywhere in the world.</p>
@@ -655,7 +676,7 @@
       <ul>
         <li>Fingerprint & face recognition</li>
         <li>Time & attendance reports</li>
-                <li>ZKTeco systems</li>
+        <li>ZKTeco systems</li>
         <li>Payroll system integration</li>
       </ul>
     </div>
@@ -855,11 +876,11 @@
     </div>
     <form class="contact-form" onsubmit="submitForm(event)">
       <div class="form-row">
-        <input type="text" placeholder="Your Name *" required/>
-        <input type="tel" placeholder="Phone / WhatsApp *" required/>
+        <input type="text" id="f-name" placeholder="Your Name *" required/>
+        <input type="tel" id="f-phone" placeholder="Phone / WhatsApp *" required/>
       </div>
-      <input type="email" placeholder="Email Address"/>
-      <select>
+      <input type="email" id="f-email" placeholder="Email Address"/>
+      <select id="f-service">
         <option value="" disabled selected>Service Required</option>
         <option>CCTV Camera Installation</option>
         <option>Wi-Fi & IP Cameras</option>
@@ -870,9 +891,9 @@
         <option>Hotspot Business Setup</option>
         <option>Multiple Services</option>
       </select>
-      <textarea placeholder="Describe your project — location, size, what you need..."></textarea>
-      <button type="submit" class="submit-btn">🚀 Send Enquiry</button>
-      <div id="form-success">✅ Message sent! We'll get back to you shortly.</div>
+      <textarea id="f-message" placeholder="Describe your project — location, size, what you need..."></textarea>
+      <button type="submit" class="submit-btn">📱 Send via WhatsApp</button>
+      <div id="form-success">✅ Opening WhatsApp with your message...</div>
     </form>
   </div>
 </section>
@@ -894,11 +915,48 @@
 <script>
   function submitForm(e) {
     e.preventDefault();
+    const name    = document.getElementById('f-name').value.trim();
+    const phone   = document.getElementById('f-phone').value.trim();
+    const email   = document.getElementById('f-email').value.trim();
+    const service = document.getElementById('f-service').value || 'Not specified';
+    const message = document.getElementById('f-message').value.trim();
+
+    const text = 
+      "Hello Skywave Technologies!\n\n" +
+      "📋 *New Enquiry from Website*\n\n" +
+      "👤 *Name:* " + name + "\n" +
+      "📞 *Phone:* " + phone + "\n" +
+      (email ? "✉️ *Email:* " + email + "\n" : "") +
+      "🔧 *Service:* " + service + "\n" +
+      (message ? "📝 *Details:* " + message : "");
+
+    const waURL = "https://wa.me/256776383214?text=" + encodeURIComponent(text);
+
     const s = document.getElementById('form-success');
     s.style.display = 'block';
-    e.target.reset();
-    setTimeout(() => s.style.display = 'none', 6000);
+    setTimeout(() => {
+      window.open(waURL, '_blank');
+      e.target.reset();
+      setTimeout(() => s.style.display = 'none', 4000);
+    }, 400);
   }
+
+  // Hamburger menu toggle
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('nav ul');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+    hamburger.classList.toggle('active');
+  });
+
+  // Close menu when a link is clicked
+  document.querySelectorAll('nav ul a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+      hamburger.classList.remove('active');
+    });
+  });
 
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
